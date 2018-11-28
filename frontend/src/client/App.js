@@ -15,7 +15,9 @@ export default class App extends Component {
     return (
       <div>
         {username ? (
-          <h1>{`Hello ${username}`}</h1>
+          <div>
+            <h1>{`Hello ${username}`}</h1>
+          </div>
         ) : (
           <h1>Loading.. please wait!</h1>
         )}
