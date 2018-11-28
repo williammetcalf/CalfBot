@@ -1,0 +1,29 @@
+{
+  "name": "calfbot",
+  "version": "1.0.0",
+  "description": "Combined Repo for CalfBot frontend and backend",
+  "main": "index.js",
+  "scripts": {
+    "build": "concurrently \"yarn build:backend\" \"yarn build:frontend\"",
+    "build:backend": "cd frontend && yarn && yarn build && cd ..",
+    "build:frontend": "cd backend && yarn && yarn build && cd ..",
+    "start": "concurrently \"yarn start:backend\" \"yarn start:frontend\"",
+    "start:frontend": "cd frontend && yarn start:prod",
+    "start:backend": "cd backend && yarn start",
+    "postinstall": "yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williammetcalf/CalfBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/williammetcalf/CalfBot/issues"
+  },
+  "homepage": "https://github.com/williammetcalf/CalfBot#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
