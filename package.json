@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "concurrently \"yarn build:backend\" \"yarn build:frontend\"",
-    "build:backend": "cd frontend && yarn && yarn build && cd ..",
-    "build:frontend": "cd backend && yarn && yarn build && cd ..",
-    "start": "concurrently \"yarn start:backend\" \"yarn start:frontend\"",
+    "build:backend": "cd backend && yarn && cd ..",
+    "build:frontend": "cd frontend && yarn && yarn build && cd ..",
+    "start": "concurrently \"yarn start:backend\" \"yarn start:frontend\" --kill-others",
     "start:frontend": "cd frontend && yarn start:prod",
     "start:backend": "cd backend && yarn start",
     "postinstall": "yarn build"
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/williammetcalf/CalfBot#readme",
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "concurrently": "^4.1.0",
+    "typescript": "^3.1.6"
   }
 }
