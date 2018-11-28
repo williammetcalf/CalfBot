@@ -4,7 +4,7 @@
   "description": "Combined Repo for CalfBot frontend and backend",
   "main": "index.js",
   "scripts": {
-    "build": "concurrently \"yarn build:backend\" \"yarn build:frontend\"",
+    "build": "yarn build:backend && yarn build:frontend",
     "build:backend": "cd backend && yarn && cd ..",
     "build:frontend": "cd frontend && yarn && yarn build && cd ..",
     "start": "concurrently \"yarn start:backend\" \"yarn start:frontend\" --kill-others",
