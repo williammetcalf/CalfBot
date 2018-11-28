@@ -1,5 +1,5 @@
 // Twitch tmi.js
-declare module 'tmi.js' {
+declare module "tmi.js" {
   class client {
     constructor(opts?: any);
     public on(event?: string, callback?: Function): void;
@@ -16,7 +16,7 @@ declare module 'tmi.js' {
 }
 
 // Spotify Api
-declare module 'spotify-web-api-node' {
+declare module "spotify-web-api-node" {
   class SpotifyWebApi {
     constructor(credentials?: any);
     setCredentials(credentials: any): void;
@@ -31,7 +31,7 @@ declare module 'spotify-web-api-node' {
 }
 
 // Firebase-Admin
-declare module 'firebase-admin' {
+declare module "firebase-admin" {
   var admin: {
     initializeApp: Function;
     credential: { cert: Function };
