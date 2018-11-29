@@ -9,7 +9,6 @@ export default class Environment {
   private env: any;
   constructor(env: any = process.env) {
     this.env = env;
-    console.log(env);
   }
 
   get debug(): DebugSettings {
