@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "tsc && node -r dotenv/config dist/index.js",
+    "dev": "tsc && node -r dotenv/config dist/index.js dotenv_config_path=../.env",
     "test": "jest --watch --coverage",
     "test:coverage": "jest --coverage",
     "postinstall": "tsc"
