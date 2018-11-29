@@ -11,13 +11,7 @@ server.use(express.static(process.env.RAZZLE_PUBLIC_DIR));
 server.use("/api", apiRouter);
 
 server.get("/*", (req, res) => {
-  const context = {};
-
-  if (context.url) {
-    res.redirect(context.url);
-  } else {
-    res.status(200).send(renderIndexHtml(context, req.url));
-  }
+  res.status(200).send(renderIndexHtml(req.url));
 });
 
 export default server;

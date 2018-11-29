@@ -6,11 +6,11 @@
   "scripts": {
     "build": "yarn build:backend && yarn build:frontend",
     "build:backend": "cd backend && yarn && cd ..",
-    "build:frontend": "cd frontend && yarn && yarn build && cd ..",
-    "start": "concurrently \"yarn start:backend\" \"yarn start:frontend\" --kill-others",
+    "build:frontend": "cd frontend && yarn && cd ..",
+    "start": "node ./scripts/run.js",
     "start:frontend": "cd frontend && yarn start:prod",
     "start:backend": "cd backend && yarn start",
-    "postinstall": "yarn build"
+    "heroku-postbuild": "yarn build"
   },
   "repository": {
     "type": "git",
