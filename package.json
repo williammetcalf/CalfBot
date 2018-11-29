@@ -23,8 +23,10 @@
     "url": "https://github.com/williammetcalf/CalfBot/issues"
   },
   "homepage": "https://github.com/williammetcalf/CalfBot#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  },
   "devDependencies": {
-    "concurrently": "^4.1.0",
     "typescript": "^3.1.6"
   }
 }
