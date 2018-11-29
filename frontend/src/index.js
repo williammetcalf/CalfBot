@@ -6,12 +6,13 @@ const server = http.createServer(app);
 
 let currentApp = app;
 
-server.listen(process.env.PORT || 3000, error => {
+const port = process.env.PORT || 3000;
+server.listen(port, error => {
   if (error) {
     console.log(error);
   }
 
-  console.log("🚀 started");
+  console.log(`🚀 started on port ${port}`);
 });
 
 if (module.hot) {
