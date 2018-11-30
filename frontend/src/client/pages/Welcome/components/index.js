@@ -1,3 +1,4 @@
+import TwitchButton from "./TwitchButton";
 import WelcomeContainer from "./WelcomeContainer";
 
-export { WelcomeContainer };
+export { TwitchButton, WelcomeContainer };

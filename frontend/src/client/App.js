@@ -11,6 +11,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Welcome} />
       <Route exact path="/about" component={About} />
+      <Route exact path="/auth/spotify" />
     </Switch>
   </AppTemplate>
 );

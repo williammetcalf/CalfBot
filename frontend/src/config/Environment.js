@@ -1,6 +1,7 @@
 export default class Environment {
   constructor(env = process.env) {
     this.env = env;
+    console.log(env);
   }
 
   get twitchAuth() {
@@ -42,6 +43,12 @@ export default class Environment {
       projectId: this.env.F_FB_PUB_PROJECT_ID,
       storageBucket: this.env.F_FB_PUB_STORAGE_BUCKET,
       messagingSenderId: this.env.F_FB_PUB_MESSAGING_SENDER_ID
+    };
+  }
+
+  get public() {
+    return {
+      twitch: this.twitchAuth
     };
   }
 }
