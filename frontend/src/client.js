@@ -10,11 +10,10 @@ import {
 import App from "./client/App";
 
 class Main extends React.Component {
-  // Remove the server-side injected CSS.
   componentDidMount() {
     const jssStyles = document.getElementById("jss-server-side");
     if (jssStyles && jssStyles.parentNode) {
-      // jssStyles.parentNode.removeChild(jssStyles);
+      jssStyles.parentNode.removeChild(jssStyles);
     }
   }
 
@@ -23,17 +22,14 @@ class Main extends React.Component {
   }
 }
 
-// Create a theme instance.
 const theme = createMuiTheme({});
-
-// Create a new class name generator.
 const generateClassName = createGenerateClassName();
 
 ReactDOM.hydrate(
   <JssProvider generateClassName={generateClassName}>
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
-        <App />
+        <Main />
       </BrowserRouter>
     </MuiThemeProvider>
   </JssProvider>,

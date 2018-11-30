@@ -42,7 +42,7 @@ const render = (html, css, config) => {
     <!doctype html>
     <html>
       <head>
-        <title>Material-UI</title>
+        <title>CalfBot</title>
         <script src="${assets.client.js}" defer crossorigin}></script>
         ${
           assets.client.css
@@ -54,7 +54,7 @@ const render = (html, css, config) => {
       <body>
         <div id="root">${html}</div>
         <script>
-          window.env = ${JSON.toString(new Environment(config).public || {})}
+          window.env = ${JSON.stringify(new Environment(config).public || {})};
         </script>
       </body>
     </html>
