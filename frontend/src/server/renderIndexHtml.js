@@ -1,8 +1,9 @@
+import { ServerStyleSheet } from "styled-components";
 import { SheetsRegistry } from "jss";
+import { StaticRouter } from "react-router-dom";
 import JssProvider from "react-jss/lib/JssProvider";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { StaticRouter } from "react-router-dom";
 
 import {
   MuiThemeProvider,
@@ -15,47 +16,52 @@ import App from "../client/App";
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const renderIndexHtml = (route = "/", config) => {
+  const sheet = new ServerStyleSheet();
   const sheetsRegistry = new SheetsRegistry();
   const sheetsManager = new Map();
   const theme = createMuiTheme({});
   const generateClassName = createGenerateClassName();
 
   const html = ReactDOMServer.renderToString(
-    <JssProvider
-      registry={sheetsRegistry}
-      generateClassName={generateClassName}
-    >
-      <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
-        <StaticRouter context={{}} location={route}>
-          <App />
-        </StaticRouter>
-      </MuiThemeProvider>
-    </JssProvider>
+    sheet.collectStyles(
+      <JssProvider
+        registry={sheetsRegistry}
+        generateClassName={generateClassName}
+      >
+        <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
+          <StaticRouter context={{}} location={route}>
+            <App />
+          </StaticRouter>
+        </MuiThemeProvider>
+      </JssProvider>
+    )
   );
 
-  const css = sheetsRegistry.toString();
-  return render(html, css, config);
+  const materialCss = sheetsRegistry.toString();
+  const styledCss = sheet.getStyleTags();
+  return render(html, materialCss, styledCss, config);
 };
 
-const render = (html, css, config) => {
+const render = (html, materialCss, styledCss, config) => {
   return `
     <!doctype html>
     <html>
       <head>
         <title>CalfBot</title>
-        <script src="${assets.client.js}" defer crossorigin}></script>
         ${
           assets.client.css
             ? `<link rel="stylesheet" href="${assets.client.css}">`
             : ""
         }
-        <style id="jss-server-side">${css}</style>
+        <style id="jss-server-side">${materialCss}</style>
+        ${styledCss}
       </head>
       <body>
         <div id="root">${html}</div>
         <script>
           window.env = ${JSON.stringify(new Environment(config).public || {})};
         </script>
+        <script src="${assets.client.js}" defer></script>
       </body>
     </html>
   `;
