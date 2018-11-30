@@ -1,3 +1,4 @@
+import BackButton from "./BackButton/BackButton";
 import LoadingButton from "./LoadingButton/LoadingButton";
 
-export { LoadingButton };
+export { BackButton, LoadingButton };

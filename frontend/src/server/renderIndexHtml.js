@@ -44,6 +44,7 @@ const render = (html, materialCss, styledCss, config) => {
     <html>
       <head>
         <title>CalfBot</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${
           assets.client.css
             ? `<link rel="stylesheet" href="${assets.client.css}">`

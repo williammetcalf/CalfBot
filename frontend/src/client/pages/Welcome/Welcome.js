@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 
-import { WelcomeContainer } from "./components";
 import { LoadingButton } from "../../components";
 import { TwitchThemeProvider } from "../../themes";
+import { WelcomeContainer } from "./components";
 
 class Welcome extends React.Component {
   state = { authenticating: false };
@@ -18,7 +20,7 @@ class Welcome extends React.Component {
         </Typography>
         <Typography
           variant="h5"
-          style={{ textAlign: "center", marginBottom: 5, maxWidth: 500 }}
+          style={{ textAlign: "center", marginBottom: 15, maxWidth: 500 }}
         >
           You must first authenticate with Twitch in order for CalfBot to join
           your channel
@@ -36,6 +38,15 @@ class Welcome extends React.Component {
             Connect to Twitch
           </LoadingButton>
         </TwitchThemeProvider>
+        <div style={{ flexGrow: 1 }} />
+        <Button
+          style={{ marginTop: 20, marginBottom: 20 }}
+          variant="outlined"
+          component={Link}
+          to="/about"
+        >
+          more info
+        </Button>
       </WelcomeContainer>
     );
   }

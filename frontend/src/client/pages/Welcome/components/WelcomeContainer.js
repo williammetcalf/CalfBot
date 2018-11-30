@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const WelcomeContainer = styled.div`
+  min-height: 100vh;
   padding-top: 20vh;
   display: flex;
   flex-direction: column;
