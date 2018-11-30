@@ -5,13 +5,10 @@ import JssProvider from "react-jss/lib/JssProvider";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 
-import {
-  MuiThemeProvider,
-  createMuiTheme,
-  createGenerateClassName
-} from "@material-ui/core/styles";
+import { createGenerateClassName } from "@material-ui/core/styles";
 import Environment from "../config/Environment";
 import App from "../client/App";
+import { PrimaryThemeProvider } from "../client/themes";
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
@@ -19,7 +16,6 @@ const renderIndexHtml = (route = "/", config) => {
   const sheet = new ServerStyleSheet();
   const sheetsRegistry = new SheetsRegistry();
   const sheetsManager = new Map();
-  const theme = createMuiTheme({});
   const generateClassName = createGenerateClassName();
 
   const html = ReactDOMServer.renderToString(
@@ -28,11 +24,11 @@ const renderIndexHtml = (route = "/", config) => {
         registry={sheetsRegistry}
         generateClassName={generateClassName}
       >
-        <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
+        <PrimaryThemeProvider sheetsManager={sheetsManager}>
           <StaticRouter context={{}} location={route}>
             <App />
           </StaticRouter>
-        </MuiThemeProvider>
+        </PrimaryThemeProvider>
       </JssProvider>
     )
   );

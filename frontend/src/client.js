@@ -1,14 +1,11 @@
+import BrowserRouter from "react-router-dom/BrowserRouter";
+import JssProvider from "react-jss/lib/JssProvider";
 import React from "react";
 import ReactDOM from "react-dom";
-import JssProvider from "react-jss/lib/JssProvider";
-import BrowserRouter from "react-router-dom/BrowserRouter";
-import {
-  MuiThemeProvider,
-  createMuiTheme,
-  createGenerateClassName
-} from "@material-ui/core/styles";
-import App from "./client/App";
 
+import { createGenerateClassName } from "@material-ui/core/styles";
+import App from "./client/App";
+import { PrimaryThemeProvider } from "./client/themes";
 class Main extends React.Component {
   componentDidMount() {
     const jssStyles = document.getElementById("jss-server-side");
@@ -22,16 +19,15 @@ class Main extends React.Component {
   }
 }
 
-const theme = createMuiTheme({});
 const generateClassName = createGenerateClassName();
 
 ReactDOM.hydrate(
   <JssProvider generateClassName={generateClassName}>
-    <MuiThemeProvider theme={theme}>
+    <PrimaryThemeProvider>
       <BrowserRouter>
         <Main />
       </BrowserRouter>
-    </MuiThemeProvider>
+    </PrimaryThemeProvider>
   </JssProvider>,
   document.querySelector("#root")
 );
