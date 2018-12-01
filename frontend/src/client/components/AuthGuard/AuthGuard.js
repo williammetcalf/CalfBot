@@ -7,7 +7,7 @@ const withAuth = (Component, onNoAuth) => {
     componentDidMount() {
       this.sub = UserService.getInstance().$user.subscribe((auth) => {
         if (!auth) {
-          onNoAuth() || this.props.history.push('/');
+          (onNoAuth && onNoAuth()) || this.props.history.push('/');
         }
       });
     }

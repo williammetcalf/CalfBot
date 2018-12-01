@@ -1,8 +1,8 @@
-import Button from "@material-ui/core/Button";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import PropTypes from "prop-types";
-import React from "react";
-import styled from "styled-components";
+import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
 class LoadingButton extends React.Component {
   state = { buttonWidth: undefined };
@@ -21,7 +21,7 @@ class LoadingButton extends React.Component {
     return children;
   }
 
-  setButtonWidth = ref => {
+  setButtonWidth = (ref) => {
     if (!this.state.buttonWidth) {
       this.setState({ buttonWidth: ref.clientWidth });
     }
@@ -30,15 +30,15 @@ class LoadingButton extends React.Component {
   render() {
     const { ButtonProps, loading } = this.props;
     const style = {
-      width: "100%",
+      width: '100%',
       height: 36,
-      whiteSpace: "nowrap",
-      overflow: "hidden",
-      ...(ButtonProps.style || {})
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      ...(ButtonProps.style || {}),
     };
     return (
       <LoadingButtonWrapper
-        className={(loading && "loading") || null}
+        className={(loading && 'loading') || null}
         ref={this.setButtonWidth}
         width={this.state.buttonWidth}
       >
@@ -52,7 +52,7 @@ class LoadingButton extends React.Component {
 
 const LoadingButtonWrapper = styled.div`
   transition: width 0.4s;
-  width: ${({ width }) => (width ? `${width}px` : "unset")};
+  width: ${({ width }) => (width ? `${width}px` : 'unset')};
   &.loading {
     width: 64px;
   }
@@ -61,11 +61,11 @@ const LoadingButtonWrapper = styled.div`
 LoadingButton.propTypes = {
   loading: PropTypes.bool,
   complete: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.string,
 };
 
 LoadingButton.defaultProps = {
-  loading: false
+  loading: false,
 };
 
 export default LoadingButton;
