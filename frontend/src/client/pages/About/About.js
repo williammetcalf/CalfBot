@@ -1,7 +1,7 @@
-import React from "react";
-import Typography from "@material-ui/core/Typography";
-import { BackButton } from "../../components";
-import styled from "styled-components";
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import { BackButton } from '../../components';
+import styled from 'styled-components';
 
 const About = () => (
   <AboutContainer>

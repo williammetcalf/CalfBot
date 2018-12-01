@@ -11,7 +11,7 @@ const App = () => (
   <AppTemplate>
     <Switch>
       <Route exact path="/" component={Welcome} />
-      <Route exact path="/about" component={withAuth(About)} />
+      <Route exact path="/about" component={About} />
       <Route exact path="/home" component={withAuth(Home)} />
     </Switch>
   </AppTemplate>
