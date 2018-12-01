@@ -1,5 +1,6 @@
-import About from "./About/About";
-import AppTemplate from "./AppTemplate/AppTemplate";
-import Welcome from "./Welcome/Welcome";
+import About from './About/About';
+import AppTemplate from './AppTemplate/AppTemplate';
+import Home from './Home/Home';
+import Welcome from './Welcome/Welcome';
 
-export { About, AppTemplate, Welcome };
+export { About, AppTemplate, Home, Welcome };
