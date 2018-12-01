@@ -1,29 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import { LoadingButton } from "../../../components";
-import { TwitchThemeProvider } from "../../../themes";
+import { LoadingButton } from '../../../components';
+import { TwitchThemeProvider } from '../../../themes';
+import { twitchAuth } from '../../../services/oauth';
+import UserService from '../../../services/userService';
 
 class TwitchButton extends React.Component {
   state = { authenticating: false };
 
-  handleClick = () => {
-    this.setState({ authenticating: !this.state.authenticating });
+  handleClick = async () => {
+    this.setState({ authenticating: true });
 
-    console.log(window.env);
-    const codeUri =
-      `https://id.twitch.tv/oauth2/authorize?` +
-      `client_id=${window.env.twitch.clientId}&` +
-      `redirect_uri=${window.env.twitch.redirectUri}&` +
-      `response_type=code&` +
-      `scope=openid user_read&`;
+    const token = await twitchAuth();
+    this.setState({ authenticating: false });
 
-    const authWindow = window.open(codeUri);
-
-    setInterval(() => {
-      if (authWindow && authWindow.location) {
-        console.log(authWindow.location.search);
-      }
-    }, 200);
+    UserService.getInstance().login(token);
   };
 
   render() {
@@ -31,9 +22,9 @@ class TwitchButton extends React.Component {
       <TwitchThemeProvider>
         <LoadingButton
           ButtonProps={{
-            variant: "contained",
-            color: "primary",
-            onClick: this.handleClick
+            variant: 'contained',
+            color: 'primary',
+            onClick: this.handleClick,
           }}
           loading={this.state.authenticating}
         >

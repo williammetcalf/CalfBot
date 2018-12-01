@@ -1,7 +1,8 @@
-import express from "express";
+import express from 'express';
+import twitchAuth from './oauth/twitch';
 
 const authCallbackRouter = express.Router();
 
-authCallbackRouter.get("/*", (req, res) => res.send("OK"));
+authCallbackRouter.get('/twitch', twitchAuth);
 
 export default authCallbackRouter;

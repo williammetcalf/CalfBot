@@ -3,7 +3,7 @@
   "version": "2.0.0-alpha.8",
   "license": "MIT",
   "scripts": {
-    "start": "razzle start dotenv_config_path=../.env",
+    "start": "razzle start",
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
     "start:prod": "node build/server.js",
@@ -11,13 +11,18 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.6.0",
+    "axios": "^0.18.0",
     "express": "4.16.4",
+    "firebase": "^5.6.0",
+    "firebase-admin": "^6.3.0",
     "jss": "^9.8.7",
+    "lodash": "^4.17.11",
     "razzle": "2.4.0",
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-jss": "^8.6.1",
     "react-router-dom": "4.3.1",
+    "rxjs": "^6.3.3",
     "styled-components": "^4.1.1"
   }
 }
