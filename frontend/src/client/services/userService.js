@@ -29,6 +29,10 @@ class UserService {
     firebase.auth().signInWithCustomToken(token);
   }
 
+  logout() {
+    firebase.auth().signOut();
+  }
+
   get $user() {
     return this._$user;
   }
