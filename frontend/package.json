@@ -3,10 +3,10 @@
   "version": "2.0.0-alpha.8",
   "license": "MIT",
   "scripts": {
-    "start": "razzle start",
+    "dev": "razzle start",
+    "start": "node build/server.js",
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
-    "start:prod": "node build/server.js",
     "postinstall": "yarn build"
   },
   "dependencies": {
