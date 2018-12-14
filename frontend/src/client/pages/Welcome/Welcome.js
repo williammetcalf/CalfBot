@@ -44,7 +44,7 @@ class Welcome extends React.Component {
           component={Link}
           to="/about"
         >
-          more info
+          More Info
         </Button>
       </WelcomeContainer>
     );
