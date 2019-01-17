@@ -8,7 +8,10 @@ export const primaryTheme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: "#123456"
+      main: "#eee"
+    },
+    text: {
+      primary: "#eee"
     }
   }
 });
